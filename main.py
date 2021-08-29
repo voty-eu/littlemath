@@ -16,7 +16,7 @@ st = {
         "b": b,
     } for a in range(1, 10) for b in range(1, 10)}
 
-runtime= {}
+runtime = {}
 
 
 class Example(QWidget):
@@ -110,6 +110,7 @@ if __name__ == '__main__':
     info.setFont(QFont('Arial', 10 * ui_scale))
     ex = Example()
 
+    runtime['counter'] = 0
 
     def next_one():
         current = random.choice(list(st.keys()))
@@ -120,6 +121,8 @@ if __name__ == '__main__':
 
         lbl.setText(f'{current} = ')
         info.clear()
+        info.setText(f"Hotovo: {runtime['counter']} příkladů")
+        runtime['counter'] += 1
         ex.update()
 
 
